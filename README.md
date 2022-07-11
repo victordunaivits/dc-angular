@@ -1,4 +1,4 @@
-<h1>API DC</h1>
+<h1>DC CRUD</h1>
 <p>Desenvolvido em Angular com a integração de API interna.</p>
 
 <h2>Tecnologias utilizadas</h2>

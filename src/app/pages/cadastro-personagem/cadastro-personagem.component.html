@@ -1,0 +1,69 @@
+<div class="container_cadastro">
+
+  <div class="titulo" *ngIf="existePersonagem">
+    EDITE UM PERSONAGEM
+  </div>
+
+  <div class="titulo" *ngIf="!existePersonagem">
+    CADASTRE UM PERSONAGEM
+  </div>
+
+  <div *ngIf="postEnviado" class="post-enviado">
+    <p *ngIf="existePersonagem">Personagem editado!</p>
+    <p *ngIf="!existePersonagem">Personagem cadastrado!</p>
+  </div>
+
+  <div class="container_informacoes">
+    <form [formGroup]="formulario" (ngSubmit)="putOuPost()" #formDir="ngForm">
+      <div class="container_label">
+        <h3>Nome </h3>
+        <input [(ngModel)]="nomeHeroi" type="text" name="input" class="input" placeholder="Digite o poder"
+          formControlName="nome" required>
+        <div *ngIf="nome.invalid && formDir.submitted" class="validation">
+          <p *ngIf="nome.errors?.['required']">O nome é obrigatório</p>
+        </div>
+      </div>
+
+      <div class="container_label">
+        <h3>Poder </h3>
+        <textarea [(ngModel)]="poder" type="text" name="input" class="input poder" placeholder="Digite o poder"
+          formControlName="poder" required></textarea>
+        <div *ngIf="poderHeroi.invalid && formDir.submitted" class="validation">
+          <p *ngIf="poderHeroi.errors?.['required']">O poder é obrigatório</p>
+        </div>
+      </div>
+
+      <div class="container_label">
+        <h3>Descrição</h3>
+        <textarea [(ngModel)]="descricao" type="text" name="input" class="input descricao" placeholder="Digite a descrição" maxlength="255"
+          formControlName="descricao" required></textarea>
+        <div *ngIf="descricaoHeroi.invalid && formDir.submitted" class="validation">
+          <p *ngIf="descricaoHeroi.errors?.['required']">A descrição é obrigatória</p>
+        </div>
+      </div>
+
+      <div class="container_label">
+        <h3>Idade</h3>
+        <input [(ngModel)]="idade" type="text" name="input" class="input" placeholder="Digite a idade" mask="000"
+          formControlName="idade" required maxlength="3">
+        <div *ngIf="idadeHeroi.invalid && formDir.submitted" class="validation">
+          <p *ngIf="idadeHeroi.errors?.['required']">A idade é obrigatório</p>
+          <p *ngIf="idadeHeroi.errors?.['maxlength']">O campo só pode ter 3 digitos</p>
+        </div>
+      </div>
+
+      <div class="container_label">
+        <h3>Imagem</h3>
+        <textarea [(ngModel)]="imagem" type="text" name="input" class="input imagem" placeholder="Insira o link da imagem"
+          formControlName="imagem" required></textarea>
+        <div *ngIf="imagemHeroi.invalid && formDir.submitted" class="validation">
+          <p *ngIf="imagemHeroi.errors?.['required']">O link da imagem é obrigatório</p>
+        </div>
+      </div>
+
+      <button type="submit" class="btnEnviar">Enviar</button>
+    </form>
+
+  </div>
+
+</div>

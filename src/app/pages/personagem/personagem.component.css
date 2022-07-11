@@ -1,0 +1,156 @@
+.personagem_erro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.personagem_erro>p {
+  font-family: 'Bebas Neue';
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.personagem_erro>a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #686868;
+  transition: ease-in-out .1s;
+  font-family: 'Bebas Neue';
+}
+
+.personagem_erro>a:hover {
+  transform: scale(1.1);
+  color: brown;
+}
+
+.personagem_erro>img {
+  width: 400px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.container_personagem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  color: #1D1D1D;
+  padding: 1rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Bebas Neue';
+}
+
+.imagem_personagem {
+  object-fit: contain;
+  width: 650px;
+  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.personagem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.descricao_personagem {
+  margin-left: 2rem;
+}
+
+.descricao_personagem>h3 {
+  font-family: 'Bebas Neue';
+  font-size: 1.5rem;
+}
+
+.descricao_personagem>p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.delete, .edit {
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease-in-out .1s;
+}
+
+.delete {
+  background: #ff0800ee;
+}
+
+.edit {
+  background: #14904cee;
+  margin-right: 10px;
+}
+
+.delete:hover, .edit:hover {
+  transform: scale(1.05);
+}
+
+.post-enviado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.post-enviado > p {
+  background-color: #1c1c1c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+@media(max-width: 1100px) {
+  .container_personagem {
+    padding-bottom: 20px;
+  }
+
+  .imagem_personagem {
+    width: 350px;
+    margin-bottom: 30px;
+  }
+
+  .personagem {
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 500px) {
+  .imagem_personagem {
+    width: 320px;
+  }
+
+  .personagem_erro>img {
+    width: 300px;
+  }
+
+  .personagem {
+    justify-content: baseline;
+  }
+
+  .descricao_personagem {
+    margin-left: 0;
+  }
+
+  .descricao_personagem>p {
+    width: 300px;
+  }
+}

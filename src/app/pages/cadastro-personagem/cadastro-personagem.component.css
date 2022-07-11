@@ -1,0 +1,87 @@
+.container_cadastro {
+  height: 100%;
+  width: 100%;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  color: #1D1D1D;
+  padding: 1rem 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Bebas Neue';
+}
+
+.container_informacoes {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.container_informacoes>form>.container_label>h3 {
+  margin: 10px 0;
+  font-family: 'Bebas Neue';
+}
+
+.container_label {
+  margin-bottom: 25px;
+  transition: ease-in-out .1s;
+}
+
+.input {
+  border-bottom: solid 1px #b9b9b9;
+  width: 17rem;
+  padding-bottom: 4px;
+  transition: ease-in-out .1s;
+  font-size: 1rem;
+  font-family: 'Oswald';
+  font-weight: 400;
+}
+
+.descricao {
+  height: 7rem;
+  resize: none;
+}
+
+.poder, .imagem {
+  height: 4rem;
+  resize: none;
+}
+
+.input:focus {
+  border-color: #1D1D1D;
+  transform: scale(1.01);
+}
+
+.btnEnviar {
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 3px;
+  font-size: .9rem;
+  color: #fff;
+  background: #00cb73;
+  position: relative;
+  left: 75%;
+  transition: ease-in-out .1s;
+}
+
+.btnEnviar:hover {
+  transform: scale(1.05);
+}
+
+.validation {
+  margin-top: 10px;
+  color: red;
+  font-size: .8rem;
+}
+
+.post-enviado {
+  background: #00cb73;
+  width: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  border-radius: 3px;
+  color: #fff;
+}

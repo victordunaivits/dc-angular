@@ -1,0 +1,40 @@
+<div class="container_personagem" *ngIf="existePersonagem; else personagem_erro">
+  <h2 class="titulo">{{dadosPersonagem?.nomeHeroi | uppercase}}</h2>
+  <div *ngIf="postEnviado" class="post-enviado">
+    <p>
+      Personagem deletado!
+    </p>
+  </div>
+
+  <div class="personagem">
+    <img src={{dadosPersonagem?.urlImagem}} draggable="false" class="imagem_personagem"/>
+
+    <div class="descricao_personagem">
+      <h3>DESCRIÇÃO</h3>
+      <p>
+        {{dadosPersonagem?.descricao}}
+      </p>
+
+      <h3>PODERES</h3>
+      <p>
+        {{dadosPersonagem?.poder}}
+      </p>
+
+      <h3>IDADE</h3>
+      <p>{{dadosPersonagem?.idade}} anos.</p>
+
+      <button (click)="editPersonagem()" class="edit">Editar</button>
+      <button (click)="deletePersonagem()" class="delete">Deletar</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #personagem_erro>
+  <div class="personagem_erro">
+    <img
+      src="http://s2.glbimg.com/V5cmUMj6K7EpNzRhAIfY3RFNhO8=/620x430/e.glbimg.com/og/ed/f/original/2014/05/14/cachorro_imitou_snoopy_mas_ele_nao_quer_ser_charlie_brown.jpg"
+      alt="">
+    <p>Nenhum personagem encontrado! </p>
+    <a routerLink="/personagem">VOLTAR AO MENU</a>
+  </div>
+</ng-template>

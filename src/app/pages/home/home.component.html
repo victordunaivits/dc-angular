@@ -1,0 +1,19 @@
+<div class="container_home">
+
+  <div class="titulo">
+    PERSONAGENS
+  </div>
+
+  <div class="container_cards">
+    <div class="card" *ngFor="let items of personagens" (click)="personagensId(items.idHeroi)">
+      <div class="imagem_card">
+        <img src={{items.urlImagem}} draggable="false">
+      </div>
+      <div class="descricao_card">
+        <h2>{{items.nomeHeroi}}</h2>
+        <p>{{items.descricao}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

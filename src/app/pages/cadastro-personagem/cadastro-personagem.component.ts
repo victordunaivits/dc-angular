@@ -16,8 +16,9 @@ export class CadastroPersonagemComponent implements OnInit {
   idade!: number | undefined;
   imagem!: string | undefined;
   postEnviado: boolean = false;
-
   existePersonagem!: boolean;
+  objetoPost: IPostPersonagem = {} as IPostPersonagem;
+  formulario!: FormGroup;
 
   get nome() {
     return this.formulario.get('nome')!;
@@ -39,23 +40,16 @@ export class CadastroPersonagemComponent implements OnInit {
     return this.formulario.get('imagem')!;
   }
 
-  objetoPost: IPostPersonagem = {} as IPostPersonagem;
-
-  formulario!: FormGroup;
-
   constructor(
     private personagemService: PersonagensService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     const id: string = String(this.route.snapshot.paramMap.get('id'));
 
-    if (id) {
-      this.getDadosPersonagem();
-    }
+    if (id) this.getDadosPersonagem();
 
     this.formulario = new FormGroup({
       nome: new FormControl('', [Validators.required]),
@@ -79,7 +73,22 @@ export class CadastroPersonagemComponent implements OnInit {
     return this.objetoPost;
   }
 
-  getDadosPersonagem() {
+  putOuPost() {
+    const id: string | null = this.route.snapshot.paramMap.get('id');
+
+    if (this.formulario.invalid) return;
+
+    this.popularObjeto();
+    id ? this.put(id) : this.post();
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+      this.router.navigate(['/personagem']);
+    }, 1000);
+  }
+
+  getDadosPersonagem(): void {
     const id: string = String(this.route.snapshot.paramMap.get('id'));
 
     this.personagemService.getID(id).subscribe((personagem) => {
@@ -92,27 +101,13 @@ export class CadastroPersonagemComponent implements OnInit {
     });
   }
 
-  putOuPost() {
-    const id: string | null = this.route.snapshot.paramMap.get('id');
-
-    if (this.formulario.invalid) return;
-    this.popularObjeto();
-    id ? this.put(id) : this.post();
-
-    window.scrollTo({top: 0, behavior: 'smooth'});
-
-    setTimeout(() => {
-      this.router.navigate(['/personagem']);
-    }, 1000);
-  }
-
-  put(id: string) {
+  put(id: string): void {
     this.personagemService.put(id, this.objetoPost).subscribe(() => {
       this.postEnviado = true;
     });
   }
 
-  post() {
+  post(): void {
     this.personagemService.post(this.objetoPost).subscribe(() => {
       this.postEnviado = true;
     });

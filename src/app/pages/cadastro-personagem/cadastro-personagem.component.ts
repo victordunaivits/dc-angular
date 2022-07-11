@@ -99,6 +99,8 @@ export class CadastroPersonagemComponent implements OnInit {
     this.popularObjeto();
     id ? this.put(id) : this.post();
 
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
     setTimeout(() => {
       this.router.navigate(['/personagem']);
     }, 1000);

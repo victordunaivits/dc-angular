@@ -1,9 +1,39 @@
 .navbar {
   background: #1D1D1D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.navbar > ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+  transition: ease-in-out .1s;
+}
+
+.item {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar ul li:hover {
+  transform: scale(1.1);
 }
 
 .logo {
   height: 5.5rem;
-  margin-left: 5%;
 }
 
+.moon {
+  height: 10px;
+}
+
+.cursor {
+  cursor: pointer;
+}

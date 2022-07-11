@@ -1,4 +1,4 @@
-<h1>DC CRUD</h1>
+<h1>CRUD - DC UNIVERSE</h1>
 <p>Desenvolvido em Angular com a integração de API interna.</p>
 
 <h2>Tecnologias utilizadas</h2>

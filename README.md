@@ -9,7 +9,10 @@
 
 <h2>Dependências</h2>
 Este projeto tem como dependência uma API interna, desenvolvida em Django.
+<p>
 <a href="https://github.com/victordunaivits/api-dc">Repositório da API</a>
+</p>
+
 
 <h2> Imagem do projeto </h2>
 -

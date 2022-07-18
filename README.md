@@ -15,7 +15,7 @@ Este projeto tem como dependência uma API interna, desenvolvida em Django.
 
 
 <h2> Imagem do projeto </h2>
--
+<img src="./src/assets/readme.gif"style="height: 400px">
 
 <h2>Pré-requisitos</h2>
 <p>Antes de começar, você vai precisar ter instalado as seguintes ferramentas:</p>

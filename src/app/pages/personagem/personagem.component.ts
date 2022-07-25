@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonagensService } from 'src/app/api/personagens.service';
 import { IPersonagem } from 'src/app/Personagem';
@@ -12,6 +12,7 @@ export class PersonagemComponent implements OnInit {
   dadosPersonagem?: IPersonagem = {};
   existePersonagem?: boolean;
   postEnviado: boolean = false;
+  id: string = String(this.route.snapshot.paramMap.get('id'));
 
   constructor(
     private personagemService: PersonagensService,
@@ -24,22 +25,17 @@ export class PersonagemComponent implements OnInit {
   }
 
   getPersonagem(): void {
-    const id: string = String(this.route.snapshot.paramMap.get('id'));
-
-    this.personagemService.getID(id).subscribe((personagem) => {
+    this.personagemService.getID(this.id).subscribe((personagem) => {
       (this.dadosPersonagem = personagem), (this.existePersonagem = true);
     });
   }
 
   editPersonagem() {
-    const id: string = String(this.route.snapshot.paramMap.get('id'));
-    this.router.navigate(['cadastroPersonagem/', id])
+    this.router.navigate(['cadastroPersonagem/', this.id])
   }
 
   deletePersonagem(): void {
-    const id: string = String(this.route.snapshot.paramMap.get('id'));
-
-    this.personagemService.delete(id).subscribe(() => {
+    this.personagemService.delete(this.id).subscribe(() => {
       this.postEnviado = true;
     });
 

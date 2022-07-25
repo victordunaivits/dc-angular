@@ -19,6 +19,7 @@ export class CadastroPersonagemComponent implements OnInit {
   existePersonagem!: boolean;
   objetoPost: IPostPersonagem = {} as IPostPersonagem;
   formulario!: FormGroup;
+  id: string = String(this.route.snapshot.paramMap.get('id'));
 
   get nome() {
     return this.formulario.get('nome')!;
@@ -47,9 +48,7 @@ export class CadastroPersonagemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id: string = String(this.route.snapshot.paramMap.get('id'));
-
-    if (id) this.getDadosPersonagem();
+    if (this.id) this.getDadosPersonagem();
 
     this.formulario = new FormGroup({
       nome: new FormControl('', [Validators.required]),
@@ -89,9 +88,7 @@ export class CadastroPersonagemComponent implements OnInit {
   }
 
   getDadosPersonagem(): void {
-    const id: string = String(this.route.snapshot.paramMap.get('id'));
-
-    this.personagemService.getID(id).subscribe((personagem) => {
+    this.personagemService.getID(this.id).subscribe((personagem) => {
       (this.nomeHeroi = personagem.nomeHeroi),
         (this.poder = personagem.poder),
         (this.descricao = personagem.descricao),

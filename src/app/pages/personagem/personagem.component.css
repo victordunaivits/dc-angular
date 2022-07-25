@@ -79,7 +79,8 @@
   width: 400px;
 }
 
-.delete, .edit {
+.delete,
+.edit {
   color: #fff;
   padding: 10px 20px;
   border-radius: 3px;
@@ -96,7 +97,8 @@
   margin-right: 10px;
 }
 
-.delete:hover, .edit:hover {
+.delete:hover,
+.edit:hover {
   transform: scale(1.05);
 }
 
@@ -107,8 +109,8 @@
   margin-bottom: 20px;
 }
 
-.post-enviado > p {
-  background-color: #1c1c1c;
+.post-enviado>p {
+  background-color: #ff2020;
   color: #fff;
   display: flex;
   justify-content: center;

@@ -8,7 +8,7 @@
   justify-content: center;
   color: #1D1D1D;
   padding: 1rem 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 600;
   font-family: 'Bebas Neue';
 }
@@ -33,7 +33,7 @@
   width: 17rem;
   padding-bottom: 4px;
   transition: ease-in-out .1s;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: 'Oswald';
   font-weight: 400;
 }
@@ -44,7 +44,7 @@
 }
 
 .poder, .imagem {
-  height: 4rem;
+  height: 6rem;
   resize: none;
 }
 
@@ -54,34 +54,12 @@
 }
 
 .btnEnviar {
-  cursor: pointer;
-  padding: 5px 15px;
-  border-radius: 3px;
-  font-size: .9rem;
-  color: #fff;
-  background: #00cb73;
   position: relative;
   left: 75%;
-  transition: ease-in-out .1s;
-}
-
-.btnEnviar:hover {
-  transform: scale(1.05);
 }
 
 .validation {
   margin-top: 10px;
   color: red;
-  font-size: .8rem;
-}
-
-.post-enviado {
-  background: #00cb73;
-  width: 18rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  border-radius: 3px;
-  color: #fff;
+  font-size: .9rem;
 }

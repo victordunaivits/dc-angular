@@ -26,12 +26,14 @@ export class PersonagemComponent implements OnInit {
 
   getPersonagem(): void {
     this.personagemService.getID(this.id).subscribe((personagem) => {
-      (this.dadosPersonagem = personagem), (this.existePersonagem = true);
+      (this.dadosPersonagem = personagem),
+        (this.existePersonagem = true),
+        (document.title = `Projeto DC - ${this.dadosPersonagem?.nomeHeroi}`);
     });
   }
 
   editPersonagem() {
-    this.router.navigate(['cadastroPersonagem/', this.id])
+    this.router.navigate([`cadastroPersonagem/${this.id}}`]);
   }
 
   deletePersonagem(): void {
@@ -40,7 +42,7 @@ export class PersonagemComponent implements OnInit {
     });
 
     setTimeout(() => {
-      this.router.navigate(['/personagem'])
-    }, 1000)
+      this.router.navigate(['/personagem']);
+    }, 1000);
   }
 }

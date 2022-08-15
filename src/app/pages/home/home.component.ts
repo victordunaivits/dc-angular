@@ -12,15 +12,19 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   personagens: Array<IPersonagem> = [];
 
-  constructor(private personagemService: PersonagensService, private router: Router) {
-    this.getPersonagemId();
-  }
+  constructor(
+    private personagemService: PersonagensService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getPersonagemId();
+    document.title = 'Projeto DC';
+  }
 
   personagensId(id: any) {
     const pegarId: string = id;
-    this.router.navigate(['personagem/', pegarId])
+    this.router.navigate(['personagem/', pegarId]);
   }
 
   getPersonagemId(): void {

@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
+
 export class PersonagensService {
   private apiUrl: string = 'http://127.0.0.1:8000/herois/';
 

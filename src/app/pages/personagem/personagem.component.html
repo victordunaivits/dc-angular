@@ -1,13 +1,23 @@
-<div class="container_personagem" *ngIf="existePersonagem; else personagem_erro">
+<div
+  class="container_personagem"
+  *ngIf="existePersonagem; else personagem_erro"
+>
   <h2 class="titulo">{{dadosPersonagem?.nomeHeroi | uppercase}}</h2>
-  <div *ngIf="postEnviado" class="post-enviado">
-    <p>
-      Personagem deletado!
-    </p>
+  <div
+    *ngIf="postEnviado"
+    class="post-enviado"
+  >
+  <div class="alert alert-danger" role="alert">
+    Personagem deletado!
+  </div>
   </div>
 
   <div class="personagem">
-    <img src={{dadosPersonagem?.urlImagem}} draggable="false" class="imagem_personagem" />
+    <img
+      src={{dadosPersonagem?.urlImagem}}
+      draggable="false"
+      class="imagem_personagem"
+    />
 
     <div class="descricao_personagem">
       <h3>DESCRIÇÃO</h3>
@@ -23,17 +33,64 @@
       <h3>IDADE</h3>
       <p>{{dadosPersonagem?.idade}} anos.</p>
 
-      <button (click)="editPersonagem()" class="edit">Editar</button>
-      <button (click)="deletePersonagem()" class="delete">Deletar</button>
+      <button
+        (click)="editPersonagem()"
+        class="btn btn-success"
+      >Editar</button>
+      <button
+        type="button"
+        class="btn btn-danger mx-2"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >Deletar</button>
+
     </div>
   </div>
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5
+            class="modal-title"
+            id="exampleModalLabel"
+          >Deletar - {{dadosPersonagem?.nomeHeroi}}</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Tem certeza que deseja deletar o personagem?
+        </div>
+        <div class="modal-footer">
+          <button
+            (click)="deletePersonagem()"
+            class="delete"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <ng-template #personagem_erro>
   <div class="personagem_erro">
     <img
       src="http://s2.glbimg.com/V5cmUMj6K7EpNzRhAIfY3RFNhO8=/620x430/e.glbimg.com/og/ed/f/original/2014/05/14/cachorro_imitou_snoopy_mas_ele_nao_quer_ser_charlie_brown.jpg"
-      alt="">
+      alt=""
+    >
     <p>Nenhum personagem encontrado! </p>
     <a routerLink="/personagem">VOLTAR AO MENU</a>
   </div>

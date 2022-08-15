@@ -8,10 +8,15 @@
     CADASTRE UM PERSONAGEM
   </div>
 
-
   <div *ngIf="postEnviado" class="post-enviado">
-    <p *ngIf="existePersonagem">Personagem editado!</p>
-    <p *ngIf="!existePersonagem">Personagem cadastrado!</p>
+
+    <div *ngIf="existePersonagem" class="alert alert-success text-center" role="alert">
+      Personagem editado!
+    </div>
+
+    <div *ngIf="!existePersonagem" class="alert alert-success text-center" role="alert">
+      Personagem cadastrado!
+    </div>
   </div>
 
   <div class="container_informacoes">
@@ -62,7 +67,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btnEnviar">Enviar</button>
+      <button type="submit" class="btnEnviar btn btn-success">Enviar</button>
     </form>
 
   </div>
